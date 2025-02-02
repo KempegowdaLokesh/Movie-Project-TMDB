@@ -1,0 +1,105 @@
+/* Full-screen overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  /* Dark background for contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Loader Container */
+.loader {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+/* 3D Rotating Rings */
+.ring {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 6px solid transparent;
+  animation: rotate 1.5s linear infinite;
+}
+
+
+/* Individual Rings with Neon Colors */
+.ring:nth-child(1) {
+  border-top: 6px solid #ff00ff;
+  animation-delay: -0.5s;
+}
+
+.ring:nth-child(2) {
+  border-right: 6px solid #00ffff;
+  animation-delay: -1s;
+}
+
+.ring:nth-child(3) {
+  border-bottom: 6px solid #ffcc00;
+  animation-delay: -1.5s;
+}
+
+/* Glowing Effect */
+.ring::before {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  top: -10%;
+  left: -10%;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.8),
+    0 0 20px rgba(0, 255, 255, 0.8),
+    0 0 30px rgba(255, 204, 0, 0.8);
+}
+
+/* Rotation Animation */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading Text */
+.loading-text {
+  content: "";
+  position: absolute;
+  bottom: -60px;
+  /* left: 20%; */
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeIn 1.5s infinite alternate;
+}
+
+.home-loading {
+  animation: logo-animation 1s ease-out;
+}
+
+
+
+/* Text Fade Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

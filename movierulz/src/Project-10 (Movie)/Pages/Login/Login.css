@@ -1,0 +1,108 @@
+/* Container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1e1e1e;
+}
+
+/* Login Box */
+.login-box {
+  background: #292b2c;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 400px; /* Add max-width for responsiveness */
+}
+
+/* Heading */
+h2 {
+  color: #ffffff;
+}
+
+/* Input Group */
+.input-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  color: #ddd;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background: #444;
+  color: white;
+  font-size: 16px;
+}
+
+/* Login Button */
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff9800;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.login-btn:hover {
+  background-color: #e68a00;
+}
+
+/* Error Message */
+.error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .login-box {
+    padding: 1.5rem; /* Reduce padding for smaller screens */
+    width: 90%; /* Make the login box width responsive */
+  }
+
+  .login-btn {
+    font-size: 14px; /* Reduce font size on smaller screens */
+  }
+
+  .input-group input {
+    font-size: 14px; /* Adjust font size of input */
+  }
+
+  h2 {
+    font-size: 24px; /* Adjust heading size for smaller screens */
+  }
+}
+
+/* For even smaller screens (like mobile) */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 1rem; /* Further reduce padding */
+    width: 95%; /* Ensure it fits within very small screens */
+  }
+
+  .login-btn {
+    font-size: 14px; /* Keep button size small */
+  }
+
+  .input-group input {
+    font-size: 14px; /* Adjust input font size */
+  }
+
+  h2 {
+    font-size: 22px; /* Smaller font for headings */
+  }
+}

@@ -1,0 +1,470 @@
+  /* src/components/Navbar.css */
+
+  /* Dark mode for body */
+  body.dark-mode {
+    background-color: black;
+    /* Dark background */
+    color: #fff;
+    /* Light text */
+  }
+
+  /* Navbar Styles */
+  .navbar {
+    background-color: #fff;
+    /* Light mode background */
+    color: black;
+    /* Dark mode text */
+    padding: 15px;
+    height: 11vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  /* Dark mode for navbar */
+  .navbar.dark {
+    background-color: black;
+    /* Dark background */
+    color: #fff;
+    /* Light text */
+  }
+
+  /* Logo */
+  .logo {
+    padding: 0% 5%;
+    font-size: 2.8rem;
+    font-weight: 900;
+    font-style: italic;
+    text-decoration: none;
+    color: #ff4500;
+  }
+
+  /* Menu styles */
+  .menu {
+    display: flex;
+    width: 50%;
+    align-items: center;
+  }
+
+  .menu.active {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: black;
+  }
+
+  /* Search input */
+  .search-input {
+    padding: 5px;
+    width: 60%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  .search-input:focus {
+    outline: none;
+    border-color: #3498db;
+  }
+
+  /* Menu list */
+  ul {
+    font-weight: 900;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  ul li {
+    margin-left: 10px;
+  }
+
+  ul li a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  ul li a:hover {
+    background-color: #ff6600;
+    color: #fff;
+    border-radius: 11px;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+  }
+
+  /* Menu toggle button */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+  }
+
+  .menu-toggle .bar {
+    width: 27px;
+    height: 3px;
+    background-color: black;
+    /* Default color for light mode */
+    margin: 2px;
+    transition: background-color 0.3s;
+  }
+
+  /* Dark Mode toggle button */
+  .dark-mode-toggle {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    margin-right: 2%;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 120px;
+    transition: background-color 0.3s;
+  }
+
+  .dark-mode-toggle:hover {
+    background-color: #0056b3;
+  }
+
+  /* General Style for the Logout Button */
+.logout-btn {
+  width: 10%;
+  padding: 5px;
+  border: none;
+  color: white;
+  background-color: black;
+  font-size: 16px;
+  margin-right: 1%;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for logout button */
+.logout-btn:hover {
+  background-color: #e64a19;
+}
+
+/* Dark Mode for Logout Button */
+.dark .logout-btn {
+  background-color: #d32f2f; /* Dark mode color */
+}
+
+.dark .logout-btn:hover {
+  background-color: #c62828; /* Dark mode hover color */
+}
+
+/* Light Mode for Logout Button */
+.light .logout-btn {
+  background-color: #ff5722; /* Light mode color */
+}
+
+.light .logout-btn:hover {
+  background-color: #e64a19; /* Light mode hover color */
+}
+
+/* Responsive Design for Logout Button */
+@media (max-width: 768px) {
+  .logout-btn {
+    font-size: 14px; /* Smaller font on tablets */
+    padding: 8px; /* Slightly smaller padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .logout-btn {
+    font-size: 14px; /* Further smaller font on mobile */
+    padding: 8px; /* Adjust padding for mobile */
+  }
+}
+
+  /* Responsive styles */
+  @media (max-width: 1440px) and (min-width: 1201px) {
+    .logo {
+      padding: 0% 5%;
+      font-size: 2.1rem;
+      font-weight: 900;
+      font-style: italic;
+      text-decoration: none;
+      color: #ff4500;
+    }
+    .menu ul li a {
+      font-size: 1.2rem;
+      color: black;
+    }
+    .navbar.dark .menu ul li a {
+      color: white;
+      /* Light text */
+    }
+  }
+
+  @media (max-width: 1200px) and (min-width: 1025px) {
+    .logo {
+      padding: 0% 5%;
+      font-size: 2.5rem;
+      font-weight: 900;
+      font-style: italic;
+      text-decoration: none;
+      color: #ff4500;
+    }
+    .menu ul li a {
+      font-size: 1.1rem;
+      color: black;
+    }
+    .navbar.dark .menu ul li a {
+      color: white;
+      /* Light text */
+    }
+  }
+  
+  @media (max-width: 1024px) and (min-width: 769px) {
+    .logo {
+      padding: 0% 5%;
+      font-size: 2.2rem;
+      font-weight: 900;
+      font-style: italic;
+      text-decoration: none;
+      color: #ff4500;
+    }
+    .menu ul li a {
+      font-size: 1rem;
+      color: black;
+    }
+    .navbar.dark .menu ul li a {
+      color: white;
+      /* Light text */
+    }
+    .dark-mode-toggle{
+      margin-right: 3%;
+    }
+  }
+
+  @media (max-width: 768px) and (min-width: 426px) {
+    .navbar {
+      flex-direction: row;
+      height: auto;
+      width: 87%;
+      justify-content: space-between;
+      padding: 10px 5%;
+      align-items: center;
+      position: relative;
+      /* Ensure navbar stays above other content */
+    }
+
+    .logo {
+      font-size: 2rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Keep search input outside the menu, beside the logo */
+    .search-input {
+      width: 50%;
+      margin-left: -1%;
+      min-width: 100px;
+    }
+
+    /* Menu styles */
+    .menu {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      top: 60px;
+      background-color: white;
+      width: 40%;
+      color: black;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      padding: 10px 0;
+      z-index: 3;
+      /* Ensure menu appears above other elements */
+    }
+
+    .menu.active {
+      display: flex;
+    }
+
+    /* Ensure the menu toggle button is inside the navbar */
+    .menu-toggle {
+      display: flex;
+      position: absolute;
+      /* Keep toggle inside navbar */
+      z-index: 4;
+      right: -6%;
+      cursor: pointer;
+      /* Ensure it's clickable */
+    }
+
+    /* Menu list styling */
+    .menu ul {
+      flex-direction: row;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      color: black;
+    }
+
+    ul li {
+      padding: 10px 15px;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: #3498db;
+    }
+
+    .dark-mode-toggle {
+      margin-right: 11%;
+    }
+
+    .navbar.dark .menu-toggle .bar {
+      background-color: white;
+      /* White bars in dark mode */
+    }
+
+    .navbar.dark .menu {
+      background-color: whitesmoke;
+      /* Dark background */
+      color: white;
+      /* Light text */
+    }
+
+    .navbar.dark .menu ul li a {
+      color: black;
+      /* Light text */
+    }
+
+    .navbar.dark .menu ul li a:hover {
+      background-color: #ff6600;
+      /* Light background */
+      color: #fff;
+      /* Light text */
+    }
+
+    .navbar.dark .search-input {
+      border-color: #007bff;
+      /* Light border color */
+    }
+
+    .navbar.dark .search-input:focus {
+      border-color: red;
+      /* Light focus border color */
+    }
+
+    .navbar.dark .dark-mode-toggle {
+      background-color: #0056b3;
+      /* Dark background */
+    }
+  }
+  @media (max-width: 425px) and (min-width: 320px) {
+    *{
+      margin-top: 1%;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+    .navbar {
+      padding: 10px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;   
+    }
+    .menu ul li a {
+      display: visible;
+    }
+    .search-input{
+      width: 50%;
+      display: visible;
+    }
+    .logo {
+      font-size: 1.4rem;
+      align-items: center;
+    }
+    .menu-toggle {
+      display: flex;
+      position: absolute;
+      z-index: 4;
+      right: 5%;
+      cursor: pointer;
+    }
+
+    .logout-btn {
+      padding: 10px 15px;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .logout-btn:hover {
+      background: darkred;
+    }
+    
+    .menu {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      top: 60px;
+      background-color: dark;
+      width: 40%;
+      color: black;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      padding: 10px 0;
+      z-index: 3;
+    }
+    .menu.active {
+      width: 90%;
+      display: flex;
+    }
+    .menu ul {
+      flex-direction: column;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      color: black;
+    }
+    ul li {
+      padding: 10px 15px;
+    }
+    .dark-mode-toggle {
+      display: visible;
+      margin-right: 15%;
+    }
+    .navbar.dark .menu-toggle .bar {
+      background-color: white;
+    }
+    .navbar.dark .menu {
+      background-color: whitesmoke;
+      color: white;
+    }
+    .navbar.dark .menu ul li a {
+      color: black;
+    }
+    .navbar.dark .menu ul li a:hover {
+      background-color: #ff6600;
+      color: #fff;
+    }
+    .navbar.dark .search-input {
+      border-color: #007bff;
+    }
+    .navbar.dark .search-input:focus {
+      border-color: red;
+    }
+    .navbar.dark .dark-mode-toggle {
+      background-color: #0056b3;
+    }
+  }
