@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Youtube from "react-youtube";
-import Loader from "../../Components/Loader/Loader"; // Import Loader
+import Loader from "../../Components/Loader/Loader";
 import "./MoviePage.css";
 
 const MoviePage = () => {
     const [specificMovie, setSpecificMovie] = useState({});
     const [trailer, setTrailer] = useState(null);
     const [cast, setCast] = useState([]);
-    const [loading, setLoading] = useState(true); // Loading state
+    const [loading, setLoading] = useState(true);
     const [isTrailerOpen, setIsTrailerOpen] = useState(false);
     const navigate = useNavigate();
     const { id } = useParams();
@@ -21,7 +21,7 @@ const MoviePage = () => {
     };
 
     useEffect(() => {
-        setLoading(true); // Show loader before fetching
+        setLoading(true);
 
         Promise.all([
             fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=7ddeab7e9f7c99d207e10ac678bc4553`)
@@ -32,10 +32,10 @@ const MoviePage = () => {
                 .then((res) => res.json())
                 .then((data) => setCast(data.cast.slice(0, 10)))
         ])
-        .then(() => setLoading(false)) // Hide loader after fetching
+        .then(() => setLoading(false))
         .catch((error) => {
             console.error('Error fetching data:', error);
-            setLoading(false); // Hide loader even if error occurs
+            setLoading(false);
         });
     }, [id]);
 
@@ -46,6 +46,19 @@ const MoviePage = () => {
             .then((data) => {
                 if (data.results && data.results.length > 0) {
                     setTrailer(data.results[0]?.key);
+                    
+                    if (window.innerWidth <= 425) {
+                        setTimeout(() => {
+                            const videoContainer = document.querySelector(".modal-content");
+                            if (videoContainer.requestFullscreen) {
+                                videoContainer.requestFullscreen();
+                            } else if (videoContainer.webkitRequestFullscreen) {
+                                videoContainer.webkitRequestFullscreen();
+                            } else if (videoContainer.msRequestFullscreen) {
+                                videoContainer.msRequestFullscreen();
+                            }
+                        }, 500);
+                    }
                 } else {
                     alert('No trailer available.');
                 }
@@ -56,9 +69,17 @@ const MoviePage = () => {
             });
     };
 
+    const handleCloseTrailer = () => {
+        setIsTrailerOpen(false);
+        if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+            document.exitFullscreen?.();
+            document.webkitExitFullscreen?.();
+            document.msExitFullscreen?.();
+        }
+    };
+
     return (
         <div className="movie-container">
-            {/* Show Loader when loading */}
             {loading ? (
                 <Loader showText={false} />
             ) : (
@@ -101,7 +122,7 @@ const MoviePage = () => {
                     {isTrailerOpen && (
                         <div className="trailer-modal">
                             <div className="modal-content">
-                                <button className="close-button" onClick={() => setIsTrailerOpen(false)}>Close</button>
+                                <button className="close-button" onClick={handleCloseTrailer}>Close</button>
                                 {trailer && <Youtube videoId={trailer} opts={opts} />}
                             </div>
                         </div>

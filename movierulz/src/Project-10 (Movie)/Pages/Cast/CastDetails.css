@@ -19,7 +19,7 @@
     gap: 60px;
     margin-bottom: 30px;
     flex-wrap: wrap;
-    justify-content: center;   
+    justify-content: center;
 }
 
 /* Cast Image */
@@ -27,7 +27,8 @@
     max-width: 100%;
     width: 320px;
     height: auto;
-    border-radius: 20px;
+    margin-left: -5%;
+    border-radius: 25px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -50,13 +51,25 @@
     font-size: 2.2rem;
     color: #222;
     font-weight: bold;
-    border-bottom: 3px solid #ff4500;
-    padding-bottom: 5px;
+    width: 727px;
+    border-bottom: 6px solid #ff4500;
+    padding-bottom: 6px;
 }
 
-.cast-details p {
+.dark-mode .cast-details-container .cast-details h1 {
+    font-size: 2.2rem;
+    color: white;
+    font-weight: bold;
+    width: 727px;
+    border-bottom: 6px solid #ff4500;
+    padding-bottom: 6px;
+}
+
+.cast-details-container .cast-details p {
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.8;
+    width: 121%;
+    text-align: justify;
     color: #444;
     margin-bottom: 15px;
 }
@@ -74,8 +87,8 @@
 
 .related-movies h2 {
     font-size: 2rem;
-    margin-bottom: 15px;
-    border-bottom: 3px solid #ff4500;
+    margin-bottom: 1px;
+    border-bottom: 6px solid #ff4500;
     color: black;
     display: inline-block;
 }
@@ -137,46 +150,149 @@
     color: #ccc;
 }
 
-.dark-mode .related-movies h2{
+.dark-mode .related-movies h2 {
     color: white;
 }
 
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-    .cast-info {
-        flex-direction: column;
+    .cast-details-container .cast-info {
+        flex-direction: row;
         align-items: center;
         text-align: center;
     }
 
     .cast-info img {
-        width: 280px;
-        margin-bottom: 20px;
+        width: 252px;
     }
 
     .cast-details {
-        max-width: 90%;
+        max-width: 50%;
         text-align: center;
     }
 
     .related-movie-item {
         width: 130px;
     }
+
+    .cast-info {
+        margin-right: 1%;
+    }
+
+    .cast-details h1 {
+        font-size: 2.0rem;
+        color: #222;
+        font-weight: bold;
+        width: 590px;
+        border-bottom: 6px solid #ff4500;
+        padding-bottom: 6px;
+    }
+
+    .dark-mode .cast-details-container .cast-details h1 {
+        font-size: 2.2rem;
+        color: white;
+        font-weight: bold;
+        width: 590px;
+        border-bottom: 6px solid #ff4500;
+        padding-bottom: 6px;
+    }
 }
 
 @media (max-width: 768px) {
-    .cast-details h1 {
+    .cast-details-container .cast-details h1 {
         font-size: 1.8rem;
+        font-weight: bold;
+        border-bottom: 6px solid #ff4500;
+        padding-bottom: 6px;
+        width:646px;
+        margin-left: -7rem;
+        margin: 0%;
+        width: auto;
     }
 
-    .cast-details p {
+    .cast-details-container .cast-info img{
+        width: 212px;
+        margin: 0%;
+    }
+
+    .dark-mode .cast-details-container .cast-details h1 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        border-bottom: 6px solid #ff4500;
+        padding-bottom: 6px;
+        width:646px;
+        margin-left: -7.5rem;
+        margin: 0%;
+        width: auto;
+    }
+
+    .cast-details-container .cast-details p {
         font-size: 0.95rem;
+        width: 646px;
+        margin-left: -7.5rem;
     }
 
-    .related-movies h2 {
+    .cast-details-container .related-movies h2 {
         font-size: 1.6rem;
     }
+
+    .cast-details-container .cast-info {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width:425px) and (min-width:300px) {
+    .cast-details-container .cast-info {
+        flex-direction: column;
+    }
+    
+    .cast-info img {
+        width: 333px;
+        align-items: center;
+        margin: auto;
+    }
+ 
+     .cast-details {
+        text-align: center;
+        margin: auto;
+    } 
+
+    .cast-details-container .cast-info p {
+        width: 200%;
+        margin-left: -50%;
+        margin-top: 3%;
+    }
+
+    .related-movie-item {
+        width: 333px;
+    }
+    
+    .cast-details-container .cast-details h1 {
+        font-size: 1.5rem;
+        color: #222;
+        font-weight: bold;
+        width: auto;
+        border-bottom: 6px solid #ff4500;
+        padding-bottom: 6px;
+        margin: auto;
+    }
+
+    .dark-mode .cast-details-container .cast-details h1 {
+        font-size: 1.5rem;
+        color: white;
+        font-weight: bold;
+        width: auto;
+        border-bottom: 6px solid #ff4500;
+        padding-bottom: 6px;
+        margin: auto;
+    }
+    .cast-details-container .related-movies h2 {
+        font-size: 1.2rem;
+
+    }
+
 }
 
 /* Smooth Animation */
@@ -185,6 +301,7 @@
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);

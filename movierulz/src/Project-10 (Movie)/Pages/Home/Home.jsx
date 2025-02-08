@@ -69,7 +69,8 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h1 className="home-head">Discover Movies Based on Your Search...</h1>
+      {/* <h1 className="home-head">Discover Movies Based on Your Search...</h1> */}
+      <h1 className="home-head">Movies That Fit Your Search Criteria....</h1>
       {loading ? (
         <Loader showText={false} />
       ) : (

@@ -70,6 +70,7 @@
     border-color: #3498db;
   }
 
+  
   /* Menu list */
   ul {
     font-weight: 900;
@@ -93,7 +94,7 @@
     transition: all 0.3s ease-in-out;
   }
 
-  ul li a:hover {
+  .navbar ul li a:hover {
     background-color: #ff6600;
     color: #fff;
     border-radius: 11px;
@@ -124,11 +125,12 @@
     background-color: #007bff;
     color: #fff;
     border: none;
+    font-weight: 600;
     margin-right: 2%;
-    padding: 10px 20px;
+    padding: 7.5px;
     border-radius: 5px;
     cursor: pointer;
-    width: 120px;
+    width: 10%;
     transition: background-color 0.3s;
   }
 
@@ -137,57 +139,76 @@
   }
 
   /* General Style for the Logout Button */
-.logout-btn {
-  width: 10%;
-  padding: 5px;
-  border: none;
-  color: white;
-  background-color: black;
-  font-size: 16px;
-  margin-right: 1%;
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-/* Hover effect for logout button */
-.logout-btn:hover {
-  background-color: #e64a19;
-}
-
-/* Dark Mode for Logout Button */
-.dark .logout-btn {
-  background-color: #d32f2f; /* Dark mode color */
-}
-
-.dark .logout-btn:hover {
-  background-color: #c62828; /* Dark mode hover color */
-}
-
-/* Light Mode for Logout Button */
-.light .logout-btn {
-  background-color: #ff5722; /* Light mode color */
-}
-
-.light .logout-btn:hover {
-  background-color: #e64a19; /* Light mode hover color */
-}
-
-/* Responsive Design for Logout Button */
-@media (max-width: 768px) {
   .logout-btn {
-    font-size: 14px; /* Smaller font on tablets */
-    padding: 8px; /* Slightly smaller padding */
+    width: 10%;
+    padding: 5px;
+    border: none;
+    color: white;
+    background-color: black;
+    font-size: 16px;
+    margin-right: 1%;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
   }
-}
 
-@media (max-width: 480px) {
-  .logout-btn {
-    font-size: 14px; /* Further smaller font on mobile */
-    padding: 8px; /* Adjust padding for mobile */
+  /* Hover effect for logout button */
+  .logout-btn:hover {
+    background-color: #e64a19;
   }
-}
+
+  .icon-dark-mode-toggle {
+    display: none;
+  }
+
+  .user-profile {
+    display: none;
+  }
+
+  /* Dark Mode for Logout Button */
+  .dark .logout-btn {
+    background-color: white;
+    /* Dark mode color */
+    color: black;
+  }
+
+  .dark .logout-btn:hover {
+    background-color: #ff5722;
+    /* Dark mode hover color */
+    color: white;
+  }
+
+
+  /* Light Mode for Logout Button */
+  .light .logout-btn {
+    background-color: #ff5722;
+    /* Light mode color */
+  }
+
+  .light .logout-btn:hover {
+    background-color: #e64a19;
+    /* Light mode hover color */
+  }
+
+  /* Responsive Design for Logout Button */
+  @media (max-width: 768px) {
+    .logout-btn {
+      font-size: 14px;
+      /* Smaller font on tablets */
+      padding: 8px;
+      /* Slightly smaller padding */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .logout-btn {
+      font-size: 14px;
+      /* Further smaller font on mobile */
+      padding: 8px;
+      /* Adjust padding for mobile */
+    }
+  }
 
   /* Responsive styles */
   @media (max-width: 1440px) and (min-width: 1201px) {
@@ -199,10 +220,12 @@
       text-decoration: none;
       color: #ff4500;
     }
+
     .menu ul li a {
       font-size: 1.2rem;
       color: black;
     }
+
     .navbar.dark .menu ul li a {
       color: white;
       /* Light text */
@@ -212,41 +235,49 @@
   @media (max-width: 1200px) and (min-width: 1025px) {
     .logo {
       padding: 0% 5%;
-      font-size: 2.5rem;
+      font-size: 1.6rem;
       font-weight: 900;
       font-style: italic;
       text-decoration: none;
       color: #ff4500;
     }
+
     .menu ul li a {
       font-size: 1.1rem;
       color: black;
     }
-    .navbar.dark .menu ul li a {
-      color: white;
-      /* Light text */
-    }
-  }
-  
-  @media (max-width: 1024px) and (min-width: 769px) {
-    .logo {
-      padding: 0% 5%;
-      font-size: 2.2rem;
-      font-weight: 900;
-      font-style: italic;
-      text-decoration: none;
-      color: #ff4500;
-    }
-    .menu ul li a {
-      font-size: 1rem;
-      color: black;
-    }
+
     .navbar.dark .menu ul li a {
       color: white;
       /* Light text */
     }
     .dark-mode-toggle{
-      margin-right: 3%;
+      margin-right: 1%;
+    }
+  }
+
+  @media (max-width: 1024px) and (min-width: 769px) {
+    .logo {
+      /* padding: 0% 5%; */
+      font-size: 1.5rem;
+      font-weight: 900;
+      font-style: italic;
+      text-decoration: none;
+      color: #ff4500;
+    }
+
+    .menu ul li a {
+      font-size: 1rem;
+      color: black;
+    }
+
+    .navbar.dark .menu ul li a {
+      color: white;
+      /* Light text */
+    }
+
+    .dark-mode-toggle {
+      margin-right: 1%;
     }
   }
 
@@ -326,7 +357,21 @@
     }
 
     .dark-mode-toggle {
-      margin-right: 11%;
+      height: 5vh;
+      width: 20%;
+      margin-right: 1%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    .logout-btn {
+      height: 5vh;
+      width: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .navbar.dark .menu-toggle .bar {
@@ -368,51 +413,56 @@
       /* Dark background */
     }
   }
-  @media (max-width: 425px) and (min-width: 320px) {
-    *{
-      margin-top: 1%;
+
+  @media (max-width: 425px) and (min-width:300px) {
+    * {
+      margin-top: 0%;
       padding: 0px;
       box-sizing: border-box;
     }
+
     .navbar {
       padding: 10px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;   
+      position: relative;
     }
+
     .menu ul li a {
       display: visible;
     }
-    .search-input{
+
+    .search-input {
       width: 50%;
       display: visible;
     }
+
     .logo {
       font-size: 1.4rem;
       align-items: center;
     }
+
+    .home-head {
+      margin-top: 6%;
+      font-size: 1.3rem;
+    }
+
     .menu-toggle {
       display: flex;
       position: absolute;
       z-index: 4;
-      right: 5%;
+      right: 3%;
       cursor: pointer;
+      /* Scale down while keeping structure */
+      transform: scale(0.9);
+      /* Adjust the scale value as needed */
     }
 
     .logout-btn {
-      padding: 10px 15px;
-      background: red;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+      display: none;
     }
-    
-    .logout-btn:hover {
-      background: darkred;
-    }
-    
+
     .menu {
       display: none;
       flex-direction: column;
@@ -427,44 +477,140 @@
       padding: 10px 0;
       z-index: 3;
     }
+
     .menu.active {
       width: 90%;
       display: flex;
     }
+
     .menu ul {
       flex-direction: column;
       margin-top: 10px;
       margin-bottom: 5px;
       color: black;
     }
+
     ul li {
       padding: 10px 15px;
     }
+
     .dark-mode-toggle {
-      display: visible;
-      margin-right: 15%;
+      display: none;
     }
+
+    .icon-dark-mode-toggle {
+      display: block;
+      font-size: x-large;
+      margin-right: 15%;
+      border: none;
+      outline: none;
+      background: none;
+      font-size: 25px;
+    }
+
+    .user-profile {
+      position: relative;
+      /* Needed for absolute positioning of dropdown */
+      cursor: pointer;
+      display: inline-block;
+      align-items: center;
+      margin-left: -3%;
+    }
+
+    .user-icon {
+      font-size: 25px;
+    }
+
+    .dark .user-icon {
+      filter: brightness(0) invert(1);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 150%;
+      /* Places the dropdown below the icon */
+      left: 0;
+      background: black;
+      border: 1px solid #ccc;
+      color: white;
+      padding: 6px;
+      width: 100px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: block;
+      /* Initially hidden */
+    }
+
+    .dark .dropdown-menu {
+      background-color: white;
+      color: black;
+    }
+
+    .dropdown-menu li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dropdown-menu li:hover {
+      color: yellow;
+    }
+
+    .dark .dropdown-menu li:hover {
+      color: #ff6600;
+    }
+
+    .user-profile.active .dropdown-menu {
+      display: block;
+      /* Show when clicked */
+    }
+
+    .dark .user-profile {
+      background-color: black;
+      color: white;
+    }
+
+    .dark .icon-dark-mode-toggle {
+      background-color: black;
+    }
+
+    /* Dark Mode Styles */
+    .navbar.dark .dropdown-menu {
+      background: white;
+      color: black;
+    }
+
+
     .navbar.dark .menu-toggle .bar {
       background-color: white;
     }
+
     .navbar.dark .menu {
       background-color: whitesmoke;
       color: white;
     }
+
     .navbar.dark .menu ul li a {
       color: black;
     }
+
     .navbar.dark .menu ul li a:hover {
       background-color: #ff6600;
       color: #fff;
     }
+
     .navbar.dark .search-input {
       border-color: #007bff;
     }
+
     .navbar.dark .search-input:focus {
       border-color: red;
     }
+
     .navbar.dark .dark-mode-toggle {
       background-color: #0056b3;
     }
+
   }
